@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template to create a SageMaker Studio User Profile
+
+Parameters:
+  SageMakerStudioDomainId:
+    Type: String
+    Default: d-zkkwqwuifvw8
+    Description: The ID of the SageMaker Studio Domain
+
+  SageMakerExecutionRole:
+    Type: String
+    Default: arn:aws:iam::979530929894:role/test-SageMakerAdminExecutionRole
+    Description: The ID of the SageMaker Studio Domain
+
+Resources:
+  SageMakerStudioUserProfile:
+    Type: AWS::SageMaker::UserProfile
+    Properties: 
+      DomainId: !Ref SageMakerStudioDomainId
+      UserProfileName: user1
+      UserSettings: 
+        ExecutionRole: !Ref SageMakerExecutionRole
+        CustomFileSystemConfigs: 
+          - EFSFileSystemConfig:
+              FileSystemId: fs-03958e88576aa1d98
+              FileSystemPath: "/home/user1"
+  
+
+Outputs:
+  SageMakerStudioUserProfileId:
+    Description: The ID of the created SageMaker Studio User Profile
+    Value: 
+      Ref: SageMakerStudioUserProfile
+    Export:
+      Name: SageMakerStudioUserProfileId
