@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# # Check if a folder path is provided
+# if [ -z "$1" ]; then
+#     echo "Please provide a folder path."
+#     exit 1
+# fi
+
+FOLDER_PATH="/home/sagemaker-user/conda-envs"
+
+python3 -m pip install ipykernel
+
+# Check if the provided path is a directory
+if [ ! -d "$FOLDER_PATH" ]; then
+    echo "The provided path is not a directory."
+    exit 1
+fi
+
+# List all directories in the given path
+for DIR in "$FOLDER_PATH"/*/; do
+    if [ -d "$DIR" ]; then
+        # Get the base name of the directory
+        CURR_ENV_NAME=$(basename "$DIR")
+
+        echo "environment ==> $CURR_ENV_NAME"
+        
+        # Run the python command with the current environment name
+        python3 -m ipykernel install --user --name "$CURR_ENV_NAME" --display-name "user-env:($CURR_ENV_NAME)"
+    fi
+done
