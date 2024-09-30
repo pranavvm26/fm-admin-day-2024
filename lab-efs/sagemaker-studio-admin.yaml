@@ -552,25 +552,25 @@ Outputs:
     Description: The ID of the Sagemaker Studio VPC
     Value: !Ref VPC
     Export:
-      Name: "SageMakerCloudformationVPCId"
+      Name: "SageMakerCloudformationVPCId2"
 
   SageMakerEMRDemoCloudformationSubnetId2:
     Description: The Subnet Id of Sagemaker Studio
     Value: !Ref PrivateSubnet1
     Export:
-      Name: "SageMakerCloudformationSubnetId"
+      Name: "SageMakerCloudformationSubnetId2"
   
   SageMakerEMRDemoCloudformationSubnetIdPublic2:
     Description: The Subnet Id of Sagemaker Studio
     Value: !Ref PublicSubnet1
     Export:
-      Name: "SageMakerCloudformationPublicSubnetId"
+      Name: "SageMakerCloudformationPublicSubnetId2"
 
   SageMakerEMRDemoCloudformationSecurityGroup2:
     Description: The Security group of Sagemaker Studio instance
     Value: !Ref SageMakerInstanceSecurityGroup
     Export:
-      Name: "SageMakerCloudformationSecurityGroup"
+      Name: "SageMakerCloudformationSecurityGroup2"
 
   SageMakerDomain2:
     Description: "SageMaker Domain Id"
@@ -591,4 +591,4 @@ Outputs:
     Description: "SageMaker BYOEFS"
     Value: !Ref EFSFileSystem
     Export:
-      Name: BYOEFSID
+      Name: BYOEFSID2
