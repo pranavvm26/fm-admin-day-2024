@@ -548,37 +548,37 @@ Resources:
 ###########################################################################
 Outputs:
 
-  SageMakerCloudformationVPCId:
+  SageMakerCloudformationVPCId2:
     Description: The ID of the Sagemaker Studio VPC
     Value: !Ref VPC
     Export:
       Name: "SageMakerCloudformationVPCId"
 
-  SageMakerEMRDemoCloudformationSubnetId:
+  SageMakerEMRDemoCloudformationSubnetId2:
     Description: The Subnet Id of Sagemaker Studio
     Value: !Ref PrivateSubnet1
     Export:
       Name: "SageMakerCloudformationSubnetId"
   
-  SageMakerEMRDemoCloudformationSubnetIdPublic:
+  SageMakerEMRDemoCloudformationSubnetIdPublic2:
     Description: The Subnet Id of Sagemaker Studio
     Value: !Ref PublicSubnet1
     Export:
       Name: "SageMakerCloudformationPublicSubnetId"
 
-  SageMakerEMRDemoCloudformationSecurityGroup:
+  SageMakerEMRDemoCloudformationSecurityGroup2:
     Description: The Security group of Sagemaker Studio instance
     Value: !Ref SageMakerInstanceSecurityGroup
     Export:
       Name: "SageMakerCloudformationSecurityGroup"
 
-  SageMakerDomain:
+  SageMakerDomain2:
     Description: "SageMaker Domain Id"
     Value: !Ref StudioDomain
     Export:
       Name: SageMakerDomainId
 
-  SageMakerDomainUrl:
+  SageMakerDomainUrl2:
     Value: !Join
       - ''
       - - 'https://console.aws.amazon.com/sagemaker/home?region='
@@ -587,7 +587,7 @@ Outputs:
         - !Ref StudioDomain
     Description: URL to access the SageMaker Domain
 
-  BYOEFS:
+  BYOEFS2:
     Description: "SageMaker BYOEFS"
     Value: !Ref EFSFileSystem
     Export:
